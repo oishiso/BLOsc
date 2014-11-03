@@ -14,10 +14,10 @@ ARGUMENT:: freq
 Fundamental frequency in Hertz.
 
 ARGUMENT:: loHarmonics
-The lowest harmonic index.
+The lowest harmonic index (starting from 1). Only integer value can be given.
 
 ARGUMENT:: numHarmonics
-The total number of harmonics.
+The total number of harmonics. Only integer value can be given.
 
 ARGUMENT:: slope
 The slope of spectrum. Should be > 0.
@@ -45,6 +45,7 @@ var window, func;
 window = Window("Analyzer", Rect(100, 100, 511, 300));
 func = FreqScopeView(window, window.view.bounds);
 func.active_(true);
+func.freqMode_(1); //log scale
 window.onClose_({ func.kill });
 window.front;
 }.value
